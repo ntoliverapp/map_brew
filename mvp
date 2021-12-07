@@ -1,0 +1,23 @@
+Pitch/Idea
+Create a web application that:
+- educates users about the history, science, art, and economics of beer 
+- allows users to learn, view, and save breweries/beer from the database
+
+MVP:
+1. Users can login to the website; must confirm that they are 21+ to enter
+
+2. Users can view and interact with a choropleth map and bar chart to learn about beer production across America between 2008 and 2019.
+
+3. Users can learn and view beer selections, breweries, ratings, and reviews based off of key descriptors (example):
+- Taste: Bitter, Sweet, Sour, Salty
+- Flavor And Aroma: Fruits, Hoppy, Spices, Malty
+
+4. Users can save beer selections
+
+5. Users can use search feature to learn more via Wikipedia API
+
+TBD:
+- Users can add their own reviews and ratings to current selections
+- Users can add new beer selections and ratings based off key descriptors
+- Users can update their profile
+- Users can view and interact with scatter map to visualize breweries across America  
