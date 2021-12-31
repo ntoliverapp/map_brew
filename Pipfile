@@ -45,6 +45,7 @@ mako = "*"
 platformdirs = "*"
 python-decouple = "*"
 python-editor = "*"
+gunicorn = "*"
 
 [dev-packages]
 
