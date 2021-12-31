@@ -12,9 +12,9 @@ main = Blueprint('main', __name__, template_folder='templates')
 def home():
 	return render_template('home.html')
 
-@main.route('/maps')
-def maps():
-	return render_template('maps.html')
+@main.route('/info')
+def info():
+	return render_template('info.html')
 
 @main.route('/test')
 @login_required
