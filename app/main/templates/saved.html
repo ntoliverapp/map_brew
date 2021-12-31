@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% set active_page = 'saved' %}
+
+
+{% block content %}
+
+<div class="row">
+    <div class="col-lg-3">
+      <div class="my-4">
+        <form action="{{ url_for('main.search_result') }}" method="POST">
+            <div class="form-group">
+                <input type = 'text' name = 'name' placeholder="Enter name of beer"><br><br>
+            </div>
+            <div class="form-group">
+                <input type = 'text' name = 'brewery' placeholder="Enter brewery of beer"><br><br>
+            </div>
+            <div class="form-group">
+                <input type = 'text' name = 'city' placeholder="Enter city of beer"><br><br>
+            </div>
+            <div class="form-group">
+                <input type = 'text' name = 'state' placeholder="Enter state of beer"><br><br>
+            </div>
+            <input type = 'submit' placeholder = 'submit'>
+          </form>      </div>
+    </div>
+    <div class="col-lg-9">
+      <div class="row my-5 card-wrapper">
+        {% if beers %}
+        {% for b in beers %}
+          <div class="col-lg-4 col-md-6 mb-4">
+              <div class="card h-100">
+                <div class="embed-responsive embed-responsive-10by9">
+                  <a href="#">
+                    <img src="{{ b.image_url }}"  alt="Photo" height=300px >
+                  </a>
+                </div>
+                <div class="card-body">
+                  <h4 class="card-title"><a href="{{ url_for('main.beer_expanded', id=b.id) }}" >
+                    {{b.name}}
+                  </a></h4>
+
+                  <h6><a href="{{ url_for('main.beer_style', id=b.style_id) }}">{{b.styles}}</a></h6> 
+                </div>
+                <div class="card-footer">
+                  <small class="text-muted">
+                    map_brew
+                  </small>
+                  <a href="{{ url_for('main.delete_beer', beer_id=b.id) }}" class="btn btn-outline-secondary btn-sm">Remove</a> 
+                </div>
+              </div>
+          </div>
+        {% endfor %}
+        {% else %}
+        <h1 class="offset-lg-3">No items to show.</h1>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+{% endblock %}

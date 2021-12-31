@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block title %}{{ user.username }} - {% endblock %}
+{% if current_user == user %}
+{% set active_page = 'account' %}
+{% endif %}
+
+{% block content %}
+<div class="row">
+
+  <div class="col-lg-10">
+    <div class="card mt-4">
+      <div class="card-body">
+        <h3 class="card-title">
+        {{ user.username }}
+        {% if user == current_user %}
+          <div class="button-actions">
+      	    <a href="{{ url_for('account.edit') }}" class="btn btn-primary">Update account</a>
+            <form class="delete-form" method="POST" action="{{ url_for('account.delete') }}">
+              <input class="btn btn-danger" type="submit" name="deleteAccount"
+              value="Delete account"
+              onclick="return confirm('Are you sure that you want to permanently delete your account?')">
+      	    </form>
+      		</div>
+        {% endif %}
+  	    </h3>
+        <p><b>Email:</b> {{ user.email }}</p>
+        <p><b>Username:</b> {{ user.username }}</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+{% endblock %}

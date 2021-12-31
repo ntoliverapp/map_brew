@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="row">
+    <div class="col-lg-3">
+      <div class="my-4">
+        <h1>Styles</h1>
+      </div>
+    </div>
+    <div class="col-lg-9">
+      <div class="row my-5 card-wrapper">
+          <div class="col-lg-4 col-md-6 mb-4">
+              <div class="card h-100">
+                <div class="embed-responsive embed-responsive-10by9">
+                  <a href="#">
+                    <img src="{{ beer_style.image_url }}"  alt="Photo" width=100% height =100%>
+                  </a>
+                </div>
+                <div class="card-body">
+                  <h4 class="card-title">
+                    {{beer_style.name}}
+                  </h4>
+                  <p class="card-text">{{ beer_style.description }}</p>
+                </div>
+                <div class="card-footer">
+                  <small class="text-muted">
+                    {{ beer_style.source }}
+                  </small>
+                  <a href="{{ url_for('main.database') }}" class="btn btn-outline-secondary btn-sm">Back</a> 
+                </div>
+              </div>
+          </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}

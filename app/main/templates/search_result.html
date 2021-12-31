@@ -1,0 +1,33 @@
+{% extends "base.html" %} 
+{% block content %} 
+<br><br><br><br>
+<h1>Search Results</h1>
+{% if range(count) %}
+<table class="table table-hover">
+    
+    <tr class="text-center">
+        <th>Name</th>
+        <th>Style</th>
+        <th>City</th>
+        <th>State</th>
+        <th>Image</th>
+    </tr>
+{% for i in range(count) %}
+<tr>
+    <td><h5><a href="{{ url_for('main.beer_expanded', id=result27[i]) }}" >{{result1[i]}}</h5></a></td>
+    <td class="text-center">{{result7[i]}}</td>
+    <td>{{result3[i]}}</td>
+    <td>{{result4[i]}}</td>
+    <td class="text-center"><img src={{result6[i]}} height=50% width=50%> </td>
+    <td><a href="{{ url_for('main.add_beer', beer_id=result27[i]) }}" class="btn btn-outline-secondary btn-sm">Save</a></td>
+    
+
+</tr>
+{% endfor %}
+</table>
+{% else %} 
+<br><br>
+<h1>No results.</h1>
+{% endif %}
+
+{% endblock %}

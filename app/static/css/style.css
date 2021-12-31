@@ -1,0 +1,65 @@
+body {
+  padding-top: 56px;
+  background-color: white;
+}
+
+.navbar-brand {
+    padding-top: 0rem;
+    padding-bottom: 0rem;
+}
+
+.card {
+  box-shadow: 2px 2px 4px #888;
+}
+
+.card-img-top {
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+textarea {
+  resize: none;
+}
+
+.delete-form {
+  display: inline;
+}
+
+.landing-box {
+  background: rgba(0, 0, 0, 0.9);
+  color: white;
+  padding-top: 15px;
+}
+
+.landing-text {
+  text-align: right;
+}
+
+.landing-jumbotron {
+  padding: 15rem 4rem 0rem 4rem;
+}
+ 
+.delete-form {
+  display: inline;
+}
+
+.button-actions {
+  float: right;
+  margin-right: 10px;
+}
+
+.profile-image {
+  height: 90px;
+  width: 80px;
+  margin-right: 10px;
+}
+
+.gig-image {
+  height: 60px;
+  width: 80px;
+  margin-right: 10px;
+}

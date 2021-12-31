@@ -1,0 +1,25 @@
+<main role="main">
+  <div class="jumbotron landing-jumbotron" style="background: url('{{ url_for('static', filename='images/landing.png') }}')  center center;background-size: cover;">
+    <div class="container landing-box">
+      <h1 class="display-3 landing-text">Bring in the music!</h1>
+      <p>Globomantics is a website for finding gigs, or publishing them, depending on your needs. If you are an aspiring musician, this is the right place for you. If you need music for your event, that could be another gig for the talented musicians from all around the world. Register for free!</p>
+      <p style="padding-bottom: 2rem"></p>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 offset-md-1">
+        <h2>Need music for your event?</h2>
+        <p>You event needs music? This is the right place for you. Maybe you need a slow background music for your restaurant? Join the website and search for talented musicians. You can email them, or they can apply to the offer you posted.</p>
+        <p><a class="btn btn-secondary" href="{{ url_for('auth.register') }}" role="button">Find musicians »</a></p>
+      </div>
+      <div class="col-md-4 offset-md-2">
+        <h2>Ready to find a new gig?</h2>
+        <p>You are an aspiring musician in need of a new gig? Join thousands of other talented musicians which bring music to the world. Apply to the endless stream of gigs on the website. What are you waiting for?</p>
+        <p><a class="btn btn-secondary" href="{{ url_for('auth.register') }}" role="button">Find gigs »</a></p>
+      </div>
+    </div>
+    <hr>
+  </div>
+</main>

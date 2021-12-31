@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="col-lg-12">
+  <div>
+    <div class="card h-100">
+      <div class="embed-responsive embed-responsive-30by30"><a href="#">
+                  <img src="{{ beer_expanded.image_url }}"></a>
+      </div>
+        <div class="card-body">
+          <h2 class="card-title">{{beer_expanded.name}}</h2>
+            <p class="card-text"> 
+              <h3>{{ beer_expanded.brewery }}</h3><h4>{{beer_expanded.city}}, {{beer_expanded.state}}<br></h4><h6>
+                  ABV: {{beer_expanded.abv}}<br> 
+                  Min IBU: {{ beer_expanded.min_ibu }}<br> 
+                  Max IBU: {{ beer_expanded.max_ibu }}<br></h6>{{ beer_expanded.description }}
+                  <br><br>
+                  <strong>Mouthfeel</strong><br>
+                  Astringency: {{beer_expanded.astringency}},  
+                  Body: {{beer_expanded.body}}, 
+                  Alcohol: {{beer_expanded.alcohol}}<br>
+
+                  <strong>Taste</strong><br>
+                  Bitter: {{beer_expanded.bitter}}, 
+                  Sweet: {{ beer_expanded.sweet }},  
+                  Sour: {{ beer_expanded.sour }}, 
+                  Salty: {{beer_expanded.salty}}<br>
+
+                  <strong>Flavor Aroma</strong><br>
+                  Fruits: {{beer_expanded.fruits}}, 
+                  Hops: {{beer_expanded.hops}}, 
+                  Spices: {{beer_expanded.spices}}, 
+                  Malts: {{ beer_expanded.malts }}<br>
+
+                  <strong>Reviews</strong><br>
+                  Aroma: {{ beer_expanded.aroma }}, 
+                  Appearance: {{beer_expanded.appearance}},  
+                  Palate: {{beer_expanded.palate}}, 
+                  Taste: {{beer_expanded.taste}}, 
+                  Overall: {{beer_expanded.overall}}<br></p>
+        </div>
+        <div class="card-footer">
+          <small class="text-muted">map_brew</small>
+            <a href="{{ url_for('main.database') }}" class="btn btn-outline-secondary btn-sm">Back</a> 
+        </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

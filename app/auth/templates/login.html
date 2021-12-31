@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block title %}Login {% endblock %}
+{% from '_error_messages.html' import field_error_messages, error_messages %}
+{% set active_page = 'login' %}
+
+{% block content %}
+<div class="row">
+  <div class="col-lg-7 offset-lg-2 my-5">
+    <h1>Login</h1><hr>
+    <form method="POST" action="{{ url_for('auth.login') }}">
+      {{ form.csrf_token }}
+      {{ error_messages(form.errors) }}
+      <div class="form-group">
+        {{ form.email.label }}
+        {{ form.email(class="form-control") }}
+        {{ field_error_messages(form.email) }}
+      </div>
+      <div class="form-group">
+        {{ form.password.label }}
+        {{ form.password(class="form-control") }}
+        {{ field_error_messages(form.password) }}
+      </div>
+      <div class="form-group">
+        {{ form.remember_me }} {{ form.remember_me.label }}
+        {{ field_error_messages(form.remember_me) }}
+      </div>
+      <hr>
+      <div class="form-group">
+        {{ form.submit(class="btn btn-primary form-control") }}
+      </div>
+      <a href="{{ url_for('auth.register') }}">Not registered yet? Register here</a>
+    </form>
+  </div>
+</div>
+{% endblock %}

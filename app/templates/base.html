@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>{% block title %}{% endblock %}map_brew</title>
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body class="bg-gradient-dark">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+      <h3 class="text-white">map_brew</h3>
+      <a href="{{ url_for('main.home') }}" class="navbar-brand">
+        <img src="{{ url_for('static', filename='images/craft-beer.jpg') }}" height="40px">
+      </a>
+      <button class="navbar-toggler" type="button"
+              data-toggle="collapse" data-target="#navbarResponsive"
+              aria-controls="navbarResponsive" aria-expanded="false"
+              aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item {{ 'active' if active_page == 'home' }}">
+            <a href="{{ url_for('main.home') }}" class="nav-link">Home</a>
+          </li>
+          <li class="nav-item {{ 'active' if active_page == 'database' }}">
+            <a href="{{ url_for('main.database') }}" class="nav-link">Brew</a>
+          </li>
+          <li class="nav-item {{ 'active' if active_page == 'saved' }}">
+            <a href="{{ url_for('main.saved') }}" class="nav-link">Fridge</a>
+          </li>
+          <li class="nav-item {{ 'active' if active_page == 'maps_login' }}">
+            <a href="{{ url_for('main.maps_login') }}" class="nav-link">Maps</a>
+          </li>
+          <li class="nav-item {{ 'active' if active_page == 'info' }}">
+            <a href="{{ url_for('main.info') }}" class="nav-link">Info</a>
+          </li>
+          {% if current_user.is_authenticated() %}
+          <li class="nav-item {{ 'active' if active_page == 'account' }}">
+            <a href="{{ url_for('account.show', username=current_user.username) }}" class="nav-link">Account ({{ current_user.username }})</a>
+          </li>
+          <li class="nav-item">
+            <a href="{{ url_for('auth.logout') }}" class="nav-link">Logout</a>
+          </li>
+          {% else %}
+          <li class="nav-item {{ 'active' if active_page == 'register' }}">
+            <a href="{{ url_for('auth.register') }}" class="nav-link">Register</a>
+          </li>
+          <li class="nav-item {{ 'active' if active_page == 'login' }}">
+            <a href="{{ url_for('auth.login') }}" class="nav-link">Login</a>
+          </li>
+          <!-- <li class="nav-item">
+            <a href="{{ url_for('main.maps') }}" class="nav-link">Maps</a>
+          </li> -->
+          {% endif %}
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+  {% with messages = get_flashed_messages(with_categories=True) %}
+    {% if messages %}
+      {% for type, content in messages %}
+        <div class="alert alert-{{ type }} alert-dismissible my-4" role="alert">
+          <button type="button" class="close"
+                  data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          {{ content }}
+        </div>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+  {% block content %}{% endblock %}
+  <p>Niq Toliver | Python | Flask | Mapbox | Plotly | Pandas | SQL Alchemy | PostgreSQL | Heroku | Bootstrap | jQuery | 2021. </p>
+  </div>
+
+  <script src="{{ url_for('static', filename='js/jquery-3.4.1.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/popper.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script> 
+  {% block javascript %}{% endblock %}
+</body>
+
+</html>

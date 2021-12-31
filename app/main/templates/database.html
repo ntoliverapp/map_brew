@@ -1,0 +1,105 @@
+
+{% extends "base.html" %}
+{% set active_page = 'database' %}
+
+
+{% block content %}
+<div>
+  <p>
+    This database contains a list of over 800 beers, 140 breweries, and 100 styles. Use the search feature to discover and learn more based on Name, Style, City, and State.
+  </p>
+</div>
+<div class="row">
+  <div class="col-lg-3">
+    <div class="my-4">
+      <form action="{{ url_for('main.search_result') }}" method="POST">
+        <div class="form-group">
+          <input type = 'text' name = 'name' placeholder="Enter name of beer"><br><br>
+        </div>
+        <div>
+          <select name='styles' method="GET" action="/">
+            <option value=''> All</option>
+            {% for b in beer %}
+            <option value="{{b.name}}" SELECTED>{{b.name}}</option>"
+            {% endfor %}
+            </select>
+        </div><br>
+        <div class="form-group">
+                <input type = 'text' name = 'city' placeholder="Enter city of beer"><br><br>
+            </div>
+            <div class="form-group">
+                <input type = 'text' name = 'state' placeholder="Enter state of beer"><br><br>
+            </div>
+            <input type = 'submit' placeholder = 'submit'>
+          </form>      </div>
+    </div>
+    <div class="col-lg-9">
+      <div class="text-right">
+      <div class="row my-5 card-wrapper">
+        {% if beers %}
+        {% for b in beers.items %}
+          <div class="col-lg-4 col-md-6 mb-4">
+              <div class="card h-100" >
+                <div class="embed-responsive embed-responsive-10by9">
+                  <a href="#">
+                    <img src="{{ b.image_url }}"  alt="Photo" width = 100%>
+                  </a>
+                </div>
+                <div class="card-body">
+                  <h4 class="card-title"><a href="{{ url_for('main.beer_expanded', id=b.id) }}" >
+                    {{b.name}}
+                  </a></h4>
+
+                  <h6><a href="{{ url_for('main.beer_style', id=b.style_id) }}">{{b.styles}}</a></h6> 
+                </div>
+                <div class="card-footer">
+                  <small class="text-muted">
+                    map_brew
+                  </small>
+                  <a href="{{ url_for('main.add_beer', beer_id=b.id) }}" class="btn btn-outline-secondary btn-sm">Save</a>  
+                </div>
+              </div>
+          </div>
+        {% endfor %}
+        {% else %}
+        <h1 class="offset-lg-3">No items to show.</h1>
+        {% endif %}
+      </div>
+      <!-- Pagination Links-->
+<div class="text-right">
+  <a href="{{ url_for('main.database', page=beers.prev_num) }}"
+     class="btn btn-outline-dark 
+     {% if beers.page == 1 %}disabled{% endif %}">
+      &laquo;
+  </a>
+<!-- Loop through the number of pages to display a link for each-->
+  {% for page_num in beers.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
+{% if page_num %}
+<!-- Check for the active page and set the link to "Active"-->
+          {% if beers.page == page_num %}
+          <a href="{{ url_for('main.database', page=page_num) }}"
+             class="btn btn-dark">
+              {{ page_num }}
+          </a>
+          {% else %}
+          <a href="{{ url_for('main.database', page=page_num) }}"
+             class="btn btn-outline-dark">
+              {{ page_num }}
+          </a>
+          {% endif %}
+      {% else %}
+          ...
+      {% endif %}
+  {% endfor %}
+  <a href="{{ url_for('main.database', page=beers.next_num) }}"
+     class="btn btn-outline-dark 
+     {% if beers.page == beers.pages %}disabled{% endif %}">
+      &raquo;
+  </a>
+</div>
+<p class="text-right mt-3">
+ Showing page {{ beers.page }} of {{ beers.pages }}
+</p>
+    </div>
+  </div>
+{% endblock %}
