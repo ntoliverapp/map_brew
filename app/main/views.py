@@ -13,13 +13,9 @@ def home():
 	return render_template('home.html')
 
 @main.route('/info')
+@login_required
 def info():
 	return render_template('info.html')
-
-@main.route('/test')
-@login_required
-def test():
-	return render_template('test.html')
 
 ITEMS_PER_PAGE=15
 @main.route("/database", methods=["POST", "GET"])
@@ -29,7 +25,6 @@ def database():
     beers = Beer.sub_pages().paginate(per_page=ITEMS_PER_PAGE, page=page, error_out=True)
         
     return render_template("database.html", beers=beers, beer=Style.style_filter(),users=User.display(1) )
-
 
 @main.route("/database/<int:id>")
 @login_required
