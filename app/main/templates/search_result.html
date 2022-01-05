@@ -15,7 +15,7 @@
 {% for i in range(count) %}
 <tr>
     <td><h5><a href="{{ url_for('main.beer_expanded', id=result27[i]) }}" >{{result1[i]}}</h5></a></td>
-    <td class="text-center">{{result7[i]}}</td>
+    <td class="text-center"><a href="{{ url_for('main.beer_style', id=result28[i]) }}" >{{result7[i]}}</a></td>
     <td>{{result3[i]}}</td>
     <td>{{result4[i]}}</td>
     <td class="text-center"><img src={{result6[i]}} height=50% width=50%> </td>

@@ -32,6 +32,9 @@
           <li class="nav-item {{ 'active' if active_page == 'database' }}">
             <a href="{{ url_for('main.database') }}" class="nav-link">Brew</a>
           </li>
+          <li class="nav-item {{ 'active' if active_page == 'style' }}">
+            <a href="{{ url_for('main.style') }}" class="nav-link">Style</a>
+          </li>
           <li class="nav-item {{ 'active' if active_page == 'saved' }}">
             <a href="{{ url_for('main.saved') }}" class="nav-link">Fridge</a>
           </li>

@@ -105,7 +105,10 @@ class Style(db.Model):
     @staticmethod
     def style_filter():
         return Style.query.order_by(asc(Style.name)).all()
-
+    
+    @staticmethod
+    def sub_page():
+        return Style.query.order_by(asc(Style.name))
 class Beer(db.Model):
     __tablename__ = "beer"
     id = db.Column(db.Integer, primary_key=True, nullable=False)

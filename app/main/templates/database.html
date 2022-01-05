@@ -5,17 +5,18 @@
 
 {% block content %}
 <div>
+  <br>
   <p>
-    This database contains a list of over 800 beers, 140 breweries, and 100 styles. Use the search feature to discover and learn more based on Name, Style, City, and State Abbreviation.
+    This database contains a list of over 800 beers, 140 breweries, and 100 styles. Use the search feature to discover and learn more based on Style, City, and State Abbreviation.
   </p>
 </div>
+
 <div class="row">
-  <div class="col-lg-3">
+  
+  <div class="col-lg-4">
+    
     <div class="my-4">
       <form action="{{ url_for('main.search_result') }}" method="POST">
-        <div class="form-group">
-          <input type = 'text' name = 'name' placeholder="Enter name of beer"><br><br>
-        </div>
         <div>
           <select name='styles' method="GET" action="/">
             <option value=''> All</option>
@@ -23,17 +24,18 @@
             <option value="{{b.name}}" SELECTED>{{b.name}}</option>"
             {% endfor %}
             </select>
-        </div><br>
+        </div>
+        <br>
         <div class="form-group">
-                <input type = 'text' name = 'city' placeholder="Enter city of beer"><br><br>
+                <input type = 'text' name = 'city' placeholder="City"><br><br>
             </div>
             <div class="form-group">
-                <input type = 'text' name = 'state' placeholder="Enter state of beer"><br><br>
+                <input type = 'text' name = 'state' placeholder="State Abbreviation"><br><br>
             </div>
-            <input type = 'submit' placeholder = 'submit'>
+            <input type = 'submit' placeholder = 'submit' class="btn btn-outline-secondary btn-sm">
           </form>      </div>
     </div>
-    <div class="col-lg-9">
+    <div class="col-lg-12">
       <div class="text-right">
       <div class="row my-5 card-wrapper">
         {% if beers %}
@@ -65,6 +67,7 @@
         <h1 class="offset-lg-3">No items to show.</h1>
         {% endif %}
       </div>
+   
       <!-- Pagination Links-->
 <div class="text-right">
   <a href="{{ url_for('main.database', page=beers.prev_num) }}"
