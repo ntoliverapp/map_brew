@@ -8,14 +8,16 @@
     <tr class="text-center">
         <th>Name</th>
         <th>Style</th>
+        <th>Brewery</th>
         <th>City</th>
         <th>State</th>
         <th>Image</th>
     </tr>
 {% for i in range(count) %}
 <tr>
-    <td><h5><a href="{{ url_for('main.beer_expanded', id=result27[i]) }}" >{{result1[i]}}</h5></a></td>
+    <td class="text-center"><h5><a href="{{ url_for('main.beer_expanded', id=result27[i]) }}" >{{result1[i]}}</h5></a></td>
     <td class="text-center"><a href="{{ url_for('main.beer_style', id=result28[i]) }}" >{{result7[i]}}</a></td>
+    <td>{{result2[i]}}</td>
     <td>{{result3[i]}}</td>
     <td>{{result4[i]}}</td>
     <td class="text-center"><img src={{result6[i]}} height=50% width=50%> </td>
@@ -28,6 +30,8 @@
 {% else %} 
 <br><br>
 <h1>No results.</h1>
+<a href="{{ url_for('main.database') }}" class="btn btn-outline-secondary btn-sm">Back</a>
 {% endif %}
+
 
 {% endblock %}

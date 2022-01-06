@@ -59,16 +59,17 @@ def maps_login():
         summary=wikipedia.summary(search, sentences=5)
         return f"<h1>{result.title}<br> </h1><h3><a href={result.url}>{result.url} </a><br> {summary} <br> </h3>"
   
- 
+
 @main.route ("/search_result", methods=["GET", "POST"])
 @login_required
 def search_result():
 
     styles = request.form.get("styles")
+    name = request.form.get("name").title()
+    brewery = request.form.get("brewery").title()
     city = request.form.get("city").title()
     state = request.form.get("state").upper()
-    print(state)
-
+   
     list1 = []
     list2 = []
     list3 = []
@@ -97,10 +98,11 @@ def search_result():
     list26 = []
     list27 = []
     list28 = []
+
     results = Beer.search_results() 
- 
+            
     for i in results:
-        if (str(styles) in i.styles) and (city in i.city) and (state in i.state):
+        if (name in i.name) and (brewery in i.brewery) and (str(styles) in i.styles) and (city in i.city) and (state in i.state):
             list1.append(i.name)
             list2.append(i.brewery)
             list3.append(i.city)
@@ -129,8 +131,10 @@ def search_result():
             list26.append(i.appearance)
             list27.append(i.id)
             list28.append(i.style_id)
-     
+
     return render_template("search_result.html", count=len(list1), result1=list1, result2 = list2, result3=list3, result4=list4, result5=list5, result6=list6, result7=list7, result8=list8, result9 = list9, result10=list10, result11=list11, result12=list12, result13=list13, result14=list14, result15=list15, result16 = list16, result17=list17, result18=list18, result19=list19, result20=list20, result21=list21, result22=list22, result23 = list23, result24=list24, result25=list25, result26=list26, result27=list27, result28=list28)
+
+
 
 def render_saved():
     user_id = current_user.id

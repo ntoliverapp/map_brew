@@ -1,3 +1,4 @@
+from re import S
 from sqlalchemy import desc, asc, Table
 from app import db
 # from extensions import db
@@ -156,74 +157,9 @@ class Beer(db.Model):
     @staticmethod
     def sub_pages():
         return Beer.query.order_by(asc(Beer.name))
-
-    # @staticmethod
-    # def style_filter():
-    #     return Beer.query.filter((Beer.styles.like('altbier%'))or (Beer.styles.like('barleywine%'))).order_by(asc(Beer.styles))
-
-    # @staticmethod
-    # def citysearch():
-    #     return Beer.query.order_by(asc(Beer.city)).all()
-    
-    # def createSession(self):
-    #     Session = sessionmaker()
-    #     self.session = Session.configure(bind=self.engine)
     
     def __Repr__(self):
         return "<Beer '{}''{}''{}''{}''{}''{}''{}''{}''{}''{}''{}''{}''{}''{}''{}''{}''{}''{}''{}''{}''{}''{}''{}''{}'{}''{}'>".format(self.name, self.style, self.brewery, self.city, self.state, self.description, self.abv, self.min_ibu, self.max_ibu, self.astringency, self.body, self.alcohol, self.bitter, self.sweet, self.sour, self.salty, self.fruits, self.hops, self.spices, self.malts, self.aroma, self.appearance, self.palate, self.taste, self.overall, self.image_url)
-    
-class Mouthfeel (db.Model):
-    id = db.Column(db.Integer, primary_key=True, nullable=False)
-    astringent = db.Column(db.String(25))
-    body = db.Column(db.String(25))
-    alcoholic = db.Column(db.String(25))
-
-    @staticmethod
-    def newest(num):
-        return Mouthfeel.query.order_by(desc(Mouthfeel.mouthfeel_id)).limit(num)
-    
-    @staticmethod
-    def display(num):
-        return Mouthfeel.query.order_by(asc(Mouthfeel.mouthfeel_id)).limit(num)
-
-    def __Repr__(self):
-        return "<Mouthfeel '{}':'{}':'{}'>".format(self.astringent, self.body, self.alcohol)
-
-class Taste (db.Model):
-    id = db.Column(db.Integer, primary_key=True, nullable=False)
-    bitter = db.Column(db.String(25))
-    sweet = db.Column(db.String(25))
-    sour = db.Column(db.String(25))
-    salty = db.Column(db.String(25))   
-
-    @staticmethod
-    def newest(num):
-        return Taste.query.order_by(desc(Taste.taste_id)).limit(num)
-    
-    @staticmethod
-    def display(num):
-        return Taste.query.order_by(asc(Taste.taste_id)).limit(num)
-
-    def __Repr__(self):
-        return "<Taste '{}':'{}':'{}':'{}'>".format(self.bitter, self.sweet, self.sour, self.salty)
-
-class FlavorAroma (db.Model):
-    id = db.Column(db.Integer, primary_key=True, nullable=False)
-    fruity = db.Column(db.String(25))
-    hoppy = db.Column(db.String(25))
-    spices = db.Column(db.String(25))
-    malty = db.Column(db.String(25))
-    
-    @staticmethod
-    def newest(num):
-        return FlavorAroma.query.order_by(desc(FlavorAroma.flavor_aroma_id)).limit(num)
-    
-    @staticmethod
-    def display(num):
-        return FlavorAroma.query.order_by(asc(FlavorAroma.flavor_aroma_id)).limit(num)
-    
-    def __Repr__(self):
-        return "<Flavor and Aroma '{}':'{}':'{}':'{}'>".format(self.fruity, self.hoppy, self.spices, self.malty)
 
 
 class SavedBeers (db.Model):
