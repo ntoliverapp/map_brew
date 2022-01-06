@@ -1,15 +1,18 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="col-lg-9">
-  <div>
-    <div class="card h-100">
-      <div class="embed-responsive embed-responsive-30by30"><a href="#">
-                  <img src="{{ beer_expanded.image_url }}" ></a>
+
+  <div class="row">
+    <div class="col-sm-8" >
+      <br>
+      <div><a href="#">
+                  <img src="{{ beer_expanded.image_url }}" height=70% width=70%></a>
       </div>
-        <div class="card-body lead">
-          <h2 class="card-title display-4">{{beer_expanded.name}}</h2>
-            <p class="card-text"> 
+      </div>
+      <div class="col-sm-4 ">
+
+          <h2 class=" display-4">{{beer_expanded.name}}</h2>
+            <p class="lead"> 
               <h3>{{ beer_expanded.brewery }}</h3><h4>{{beer_expanded.city}}, {{beer_expanded.state}}<br></h4><h6>
                   ABV: {{beer_expanded.abv}}<br> 
                   Min IBU: {{ beer_expanded.min_ibu }}<br> 
@@ -39,10 +42,11 @@
                   Taste: {{beer_expanded.taste}}, 
                   Overall: {{beer_expanded.overall}}<br></p>
         </div>
-        <div class="card-footer">
-          <small class="text-muted">map_brew</small>
+        <div >
+          <small class="text-muted">kaggle.com</small>
             <a href="{{ url_for('main.database') }}" class="btn btn-outline-secondary btn-sm">Back</a> 
-        </div>
+        
+    </div>
     </div>
   </div>
 </div>
