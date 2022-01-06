@@ -10,7 +10,7 @@ class UpdateAccountForm(FlaskForm):
 									DataRequired("Data is required!"),
 									Length(min=10, max=40, message="email must be between 10 and 40 characters long")
 								])
-	username = TextAreaField("Update Description",
+	username = TextAreaField("Update Username",
 								validators=[
 									InputRequired("Input is required!"),
 									DataRequired("Data is required!"),
