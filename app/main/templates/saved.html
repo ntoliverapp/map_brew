@@ -5,25 +5,8 @@
 {% block content %}
 <br><h2 class="text-center">Fridge</h2>
 <div class="row">
-  <div class="col-lg-3">
-      <div class="my-4">
-        <form action="{{ url_for('main.search_result') }}" method="POST">
-            <div class="form-group">
-                <input type = 'text' name = 'name' placeholder="Enter name of beer"><br><br>
-            </div>
-            <div class="form-group">
-                <input type = 'text' name = 'brewery' placeholder="Enter brewery of beer"><br><br>
-            </div>
-            <div class="form-group">
-                <input type = 'text' name = 'city' placeholder="Enter city of beer"><br><br>
-            </div>
-            <div class="form-group">
-                <input type = 'text' name = 'state' placeholder="Enter state of beer"><br><br>
-            </div>
-            <input type = 'submit' placeholder = 'submit'>
-          </form>      </div>
-    </div>
-    <div class="col-lg-9">
+  
+    <div class="col-lg-12">
       <div class="row my-5 card-wrapper">
         {% if beers %}
         {% for b in beers %}
