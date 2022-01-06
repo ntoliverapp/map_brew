@@ -10,7 +10,7 @@
   <div class="col-lg-10">
     <div class="card mt-4">
       <div class="card-body">
-        <h3 class="card-title">
+        <h3 class="card-title lead">
         {{ user.username }}
         {% if user == current_user %}
           <div class="button-actions">
@@ -23,8 +23,8 @@
       		</div>
         {% endif %}
   	    </h3>
-        <p><b>Email:</b> {{ user.email }}</p>
-        <p><b>Username:</b> {{ user.username }}</p>
+        <p class="lead"><b>Email:</b> {{ user.email }}</p>
+        <p class="lead"><b>Username:</b> {{ user.username }}</p>
       </div>
     </div>
   </div>

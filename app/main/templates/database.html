@@ -4,10 +4,10 @@
 
 
 {% block content %}
-<div class="text-center">
+<div class="text-center ">
   <br>
-  <h2>Brew DB</h2>
-  <p>
+  <h2 class="display-4">Brew DB</h2>
+  <p class="lead">
     This database contains a list of 879 unique beers, 183 breweries, and 100 styles. Scroll down and click on any of the names or styles below to learn more. Use the search and filter feature to discover and learn more based on Style, Name, Brewery, City, and State Abbreviation. If there is a beer you like, you can save it to your fridge.
   </p>
 </div>
@@ -55,12 +55,12 @@
                     <img src="{{ b.image_url }}"  alt="Photo" width = 100%>
                   </a>
                 </div>
-                <div class="card-body">
-                  <h4 class="card-title"><a href="{{ url_for('main.beer_expanded', id=b.id) }}" >
+                <div class="card-body text-center">
+                  <h4 class="card-title display-5"><a href="{{ url_for('main.beer_expanded', id=b.id) }}" >
                     {{b.name}}
                   </a></h4>
 
-                  <h6><a href="{{ url_for('main.beer_style', id=b.style_id) }}">{{b.styles}}</a></h6> 
+                  <h6 class="lead"><a href="{{ url_for('main.beer_style', id=b.style_id) }}">{{b.styles}}</a></h6> 
                 </div>
                 <div class="card-footer">
                   <small class="text-muted">

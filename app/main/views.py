@@ -5,8 +5,10 @@ import wikipedia
 from app import db
 from app.auth.views import current_user
 main = Blueprint('main', __name__, template_folder='templates')
-
-
+@main.route('/map')
+@login_required
+def map():
+	return render_template('map_brew.html')
 @main.route('/')
 @login_required
 def home():
