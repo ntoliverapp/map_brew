@@ -46,6 +46,7 @@ platformdirs = "*"
 python-decouple = "*"
 python-editor = "*"
 gunicorn = "*"
+kaleido = "*"
 
 [dev-packages]
 

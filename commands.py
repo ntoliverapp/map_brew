@@ -99,10 +99,10 @@ def drop_all_db():
         print("Dropped the database")
 
          
-if __name__ == '__main__':
-    # init_user_db("/Users/appleadmin2/Desktop/User.csv")
-    init_style_db("/Users/appleadmin2/Desktop/csv/Style.csv")
-    init_beer_db("/Users/appleadmin2/Desktop/csv/BeerInfo.csv")
+# if __name__ == '__main__':
+#     # init_user_db("/Users/appleadmin2/Desktop/User.csv")
+#     init_style_db("/Users/appleadmin2/Desktop/csv/Style.csv")
+#     init_beer_db("/Users/appleadmin2/Desktop/csv/BeerInfo.csv")
     # init_mouthfeel_db("/Users/appleadmin2/Desktop/Mouthfeel.csv")
     # init_taste_db("/Users/appleadmin2/Desktop/Taste.csv")
     # init_flavor_aroma_db("/Users/appleadmin2/Desktop/FlavorAroma.csv")
@@ -110,29 +110,3 @@ if __name__ == '__main__':
    
 
 
-# CHOROPLETH MAP#
-# with urlopen('https://raw.githubusercontent.com/ntoliverapp/flask-test/main/stateData.json') as response:
-#     states = json.load(response)
-
-# import pandas as pd
-
-# df = pd.read_csv("/Users/appleadmin2/Desktop/csv/beer.csv",
-#                    dtype={"state": str})
-
-# import plotly.express as px
-
-# # import ssl; ssl._create_default_https_context = ssl._create_stdlib_context
-
-# api_token = 'pk.eyJ1IjoibnRvbGl2ZXJhcHAiLCJhIjoiY2t3cjJ3N3BpMHFmajJxbzByM3VydWw4eiJ9._aAAE71HQrQ21Cowy48WYw'
-
-# fig = px.choropleth_mapbox(df, geojson=states, locations='fips', color='bottles',
-#                            color_continuous_scale="darkmint",
-#                            range_color=(0, 1000000), hover_data=['state','bottles'],
-#                            mapbox_style="carto-positron",
-#                            zoom=3, center = {"lat": 37.0902, "lon": -95.7129},
-#                            opacity=0.3,
-#                            labels={'Beer Barrels by State'}, title="2019 Brew Production Data"
-#                           )
-# fig.update_layout(margin={"r":0,"t":0,"l":0,"b":0})
-# fig.show()
-# fig.write_html('2019.html')

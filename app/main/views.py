@@ -44,21 +44,7 @@ def beer_style(id):
 @login_required
 def beer_expanded(id):
     beer_expanded = Beer.query.get_or_404(id)
-    return render_template('beer_expanded.html', beer_expanded=beer_expanded)
-
-@main.route("/maps_login", methods=["POST", "GET"])
-@login_required
-def maps_login():
-    if request.method == "GET":
-        return render_template("maps_login.html", users=User.display(1))
-    else:
-        search = request.form["search"]
-  
-        # Fetch data from wikipedia
-        result = wikipedia.page(search)
-        summary=wikipedia.summary(search, sentences=5)
-        return f"<h1>{result.title}<br> </h1><h3><a href={result.url}>{result.url} </a><br> {summary} <br> </h3>"
-  
+    return render_template('beer_expanded.html', beer_expanded=beer_expanded)  
 
 @main.route ("/search_result", methods=["GET", "POST"])
 @login_required

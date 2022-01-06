@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "35ab6ce1a23987b43a356353eea76ce3c58475e9b44d3b7c44f3fd1938ec60f0"
+            "sha256": "922e4d65aebe105f31566aeef6d7baf3a1759f15bb08056275c5a413c8a40362"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -18,10 +18,13 @@
     "default": {
         "bcrypt": {
             "hashes": [
+                "sha256:56e5da069a76470679f312a7d3d23deb3ac4519991a0361abc11da837087b61d",
                 "sha256:5b93c1726e50a93a033c36e5ca7fdcd29a5c7395af50a6892f5d9e7c6cfbfb29",
                 "sha256:63d4e3ff96188e5898779b6057878fecf3f11cfe6ec3b313ea09955d587ec7a7",
                 "sha256:81fec756feff5b6818ea7ab031205e1d323d8943d237303baca2c5f9c7846f34",
+                "sha256:a0584a92329210fcd75eb8a3250c5a941633f8bfaf2a18f81009b097732839b7",
                 "sha256:a67fb841b35c28a59cebed05fbd3e80eea26e6d75851f0574a9273c80f3e9b55",
+                "sha256:b589229207630484aefe5899122fb938a5b017b0f4349f769b8c13e78d99a8fd",
                 "sha256:c95d4cbebffafcdd28bd28bb4e25b31c50f6da605c81ffd9ad8a3d1b2ab7b1b6",
                 "sha256:cd1ea2ff3038509ea95f687256c46b79f5fc382ad0aa3664d200047546d511d1",
                 "sha256:cdcdcb3972027f83fe24a48b1e90ea4b584d35f1cc279d76de6fc4b13376239d"
@@ -280,6 +283,18 @@
             ],
             "index": "pypi",
             "version": "==3.0.3"
+        },
+        "kaleido": {
+            "hashes": [
+                "sha256:4670985f28913c2d063c5734d125ecc28e40810141bdb0a46f15b76c1d45f23c",
+                "sha256:845819844c8082c9469d9c17e42621fbf85c2b237ef8a86ec8a8527f98b6512a",
+                "sha256:aa21cf1bf1c78f8fa50a9f7d45e1003c387bd3d6fe0a767cfbbf344b95bdc3a8",
+                "sha256:bb9a5d1f710357d5d432ee240ef6658a6d124c3e610935817b4b42da9c787c05",
+                "sha256:ca6f73e7ff00aaebf2843f73f1d3bacde1930ef5041093fe76b83a15785049a7",
+                "sha256:ecc72635860be616c6b7161807a65c0dbd9b90c6437ac96965831e2e24066552"
+            ],
+            "index": "pypi",
+            "version": "==0.2.1"
         },
         "mako": {
             "hashes": [
@@ -549,11 +564,11 @@
         },
         "setuptools": {
             "hashes": [
-                "sha256:5c89b1a14a67ac5f0956f1cb0aeb7d1d3f4c8ba4e4e1ab7bf1af4933f9a2f0fe",
-                "sha256:675fcebecb43c32eb930481abf907619137547f4336206e4d673180242e1a278"
+                "sha256:1d245c08b5765c30370aef6ccbca50893ce34392cc241316ea70907758fa5327",
+                "sha256:b56ac4a6155a0ae2345cd89e30340b64f24069c344f2140a6216a1d954f7101d"
             ],
             "markers": "python_version >= '3.7'",
-            "version": "==60.2.0"
+            "version": "==60.3.0"
         },
         "six": {
             "hashes": [
