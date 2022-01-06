@@ -1,7 +1,7 @@
 import plotly.express as px
 
 import pandas as pd
-bmp_data = "/Users/appleadmin2/Desktop/csv/locate.csv"
+bmp_data = "...maps.csv"
 bmp_df = pd.read_csv(bmp_data)
 bmp_df
 
