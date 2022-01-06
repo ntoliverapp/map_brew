@@ -33,7 +33,7 @@ class RegistrationForm(FlaskForm):
                                     InputRequired("Input is required!"),
                                     DataRequired("Data is required!")
                                 ])
-    age              = BooleanField(false_values=None)
+    age              = BooleanField(validators=[DataRequired()],false_values=None)
     submit           = SubmitField("Register")
 
     def validate_username(form, field):
