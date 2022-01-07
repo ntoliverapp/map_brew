@@ -15,7 +15,6 @@ def login_required(f):
     @wraps(f)
     def _login_required(*args, **kwargs):
         if current_user.is_anonymous():
-            # flash("You need to be logged in to access this page", "danger")
             return redirect(url_for("auth.login"))
         return f(*args, **kwargs)
     return _login_required

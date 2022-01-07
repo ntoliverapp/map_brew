@@ -1,10 +1,9 @@
 from re import S
-from sqlalchemy import desc, asc, Table
+from sqlalchemy import desc, asc
 from app import db
-# from extensions import db
-from sqlalchemy.orm import relationship, sessionmaker
 from werkzeug.security import generate_password_hash, check_password_hash
 from secrets import token_urlsafe
+
 from sqlalchemy.ext.declarative import declarative_base
 db.Base = declarative_base()
 
@@ -110,6 +109,7 @@ class Style(db.Model):
     @staticmethod
     def sub_page():
         return Style.query.order_by(asc(Style.name))
+    
 class Beer(db.Model):
     __tablename__ = "beer"
     id = db.Column(db.Integer, primary_key=True, nullable=False)
@@ -161,24 +161,7 @@ class Beer(db.Model):
     def __Repr__(self):
         return "<Beer '{}''{}''{}''{}''{}''{}''{}''{}''{}''{}''{}''{}''{}''{}''{}''{}''{}''{}''{}''{}''{}''{}''{}''{}'{}''{}'>".format(self.name, self.style, self.brewery, self.city, self.state, self.description, self.abv, self.min_ibu, self.max_ibu, self.astringency, self.body, self.alcohol, self.bitter, self.sweet, self.sour, self.salty, self.fruits, self.hops, self.spices, self.malts, self.aroma, self.appearance, self.palate, self.taste, self.overall, self.image_url)
 
-
 class SavedBeers (db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     beer_id = db.Column(db.Integer, db.ForeignKey('beer.id'))
-
-
-# saved_beers = Table('saved_beers', db.Base.metadata,
-#     db.Column('user_id', db.ForeignKey('user.id')),
-#     db.Column('beer_id', db.ForeignKey('beer.id'))
-# )
-
-# class Parent(db.Base):
-#     __tablename__ = 'user'
-#     user_id = db.Column(db.Integer, primary_key=True)
-#     children = relationship("Child", cascade="all, delete-orphan",
-#                     secondary=saved_beers)
-
-# class Child(db.Base):
-#     __tablename__ = 'beer'
-#     beer_id = db.Column(db.Integer, primary_key=True)

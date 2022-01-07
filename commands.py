@@ -48,49 +48,6 @@ def init_beer_db(filename):
                 db.session.add(data)
                 db.session.commit()
     print('Beer Database Successfully Complete')
-            
-
-# def init_mouthfeel_db(filename):
-#     db.create_all()
-#     print('Initialized Mouthfeel database')
-#     with open(filename, "r") as f:
-#         for line in f.readlines():
-#             data = line.strip().split(",")
-#             print(data[0])
-            
-#             data = Mouthfeel(astringent=data[0], body=data[1], alcoholic=data[2])
-            
-#             db.session.add(data)
-#             db.session.commit()
-#     print('Mouthfeel Database Successfully Complete')
-
-# def init_taste_db(filename):
-#     db.create_all()
-#     print('Initialized Taste database')
-#     with open(filename, "r") as f:
-#         for line in f.readlines():
-#             data = line.strip().split(",")
-#             print(data[1])
-            
-#             data = Taste(bitter=data[0], sweet=data[1], sour=data[2], salty=data[3])
-            
-#             db.session.add(data)
-#             db.session.commit()
-#     print('Taste Database Successfully Complete')
-    
-# def init_flavor_aroma_db(filename):
-#     db.create_all()
-#     print('Initialized Flavor Aroma database')
-#     with open(filename, "r") as f:
-#         for line in f.readlines():
-#             data = line.strip().split(",")
-#             print(data[1])
-            
-#             data = FlavorAroma(fruity=data[0], hoppy=data[1], spices=data[2], malty=data[3])
-            
-#             db.session.add(data)
-#             db.session.commit()
-#     print('Flavor Aroma Database Successfully Complete')
     
 def drop_all_db():
     if input(
@@ -100,13 +57,13 @@ def drop_all_db():
 
          
 # if __name__ == '__main__':
-#     # init_user_db("/Users/appleadmin2/Desktop/User.csv")
+#     init_user_db("/Users/appleadmin2/Desktop/User.csv")
+    
 #     init_style_db("/Users/appleadmin2/Desktop/csv/Style.csv")
+    
 #     init_beer_db("/Users/appleadmin2/Desktop/csv/BeerInfo.csv")
-    # init_mouthfeel_db("/Users/appleadmin2/Desktop/Mouthfeel.csv")
-    # init_taste_db("/Users/appleadmin2/Desktop/Taste.csv")
-    # init_flavor_aroma_db("/Users/appleadmin2/Desktop/FlavorAroma.csv")
-    # drop_all_db()
+    
+#     drop_all_db()
    
 
 

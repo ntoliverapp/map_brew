@@ -2,7 +2,7 @@ import os
 from flask import Flask, render_template
 from flask_sqlalchemy import SQLAlchemy
 basedir = os.path.abspath(os.path.dirname(__file__))
-# from extensions import db
+
 db = SQLAlchemy()
 
 def create_app(config_file='settings.py'):

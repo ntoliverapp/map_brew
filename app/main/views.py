@@ -1,7 +1,6 @@
-from flask import Blueprint, request, render_template, flash, redirect, url_for
+from flask import Blueprint, request, render_template, flash
 from app.auth.views import login_required
 from app.models import User, Beer, Style, SavedBeers
-import wikipedia
 from app import db
 from app.auth.views import current_user
 main = Blueprint('main', __name__, template_folder='templates')
